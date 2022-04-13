@@ -61,9 +61,9 @@ function getSearchedCourses(userID, searchVal) {
 
   return new Promise((resolve, reject) => {
 
-    const sql2 = `SELECT title, level FROM courses WHERE title LIKE ?`;
+    const sql2 = `SELECT title, level FROM courses WHERE title LIKE ? OR description LIKE ?`;
 
-    knex_db.raw(sql2, [searchVal + '%'])
+    knex_db.raw(sql2, [searchVal + '%','%'+searchVal+'%'])
       .then((courses) => {
         resolve(courses);
       }).catch((error) => {
