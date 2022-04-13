@@ -18,11 +18,11 @@ function getUserByEmailAndPassword(email, password) {
         if (bcrypt.compareSync(password, data[0].password)) {
           resolve(data[0]);
         } else {
-          reject("Password Mismatch");
+          reject("User authentication failed");
         }
       })
       .catch((error) => {
-        reject("User Not Found");
+        reject("User authentication failed");
       })
   });
 }
