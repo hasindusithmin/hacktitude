@@ -113,7 +113,7 @@ function getSortedCourses(action, value) {
 }
 
 function getCourseDetails(userId, courseId) {
-  const sql = `SELECT id, title, level, description, price FROM courses WHERE id = ?`;
+  const sql = `SELECT id, title, level, description, price, duration FROM courses WHERE id = ?`;
   const sql2 = `SELECT uid FROM userCourses WHERE cid = ? AND uid = ?`;
 
   return new Promise(async (resolve, reject) => {
